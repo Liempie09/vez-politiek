@@ -1,0 +1,389 @@
+ <!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economie Standpunten - Vrijheid en Zelfstandigheid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            --secondary-gradient: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            --text-color: #2C3E50;
+            --light-bg: #F8FAFC;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .standpunt-container {
+            max-width: 900px;
+            margin: 120px auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .standpunt-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .standpunt-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .standpunt-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .standpunt-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .standpunt-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .standpunt-section h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+            border-image: var(--primary-gradient) 1;
+        }
+
+        .standpunt-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #1a2a6c;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(26, 42, 108, 0.05) 0%, rgba(178, 31, 31, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #1a2a6c;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .standpunt-container {
+                margin: 100px 1rem 2rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="vez.png" alt="Logo">
+            <h1>Vrijheid en Zelfstandigheid</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standpunten.html">Standpunten</a></li>
+                <li><a href="over.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="standpunt-container">
+        <a href="standpunten.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Terug naar alle standpunten
+        </a>
+
+        <div class="standpunt-header">
+            <h2 class="section-title">Economie</h2>
+        </div>
+
+        <div class="standpunt-intro">
+            <p>Een sterke economie is belangrijk voor iedereen. Als het goed gaat met de economie, zijn er meer banen, verdienen mensen meer en kunnen we investeren in de toekomst. Toch zijn er nu veel zorgen. De lasten zijn hoog, het midden- en kleinbedrijf (MKB) heeft het moeilijk en Nederland is te afhankelijk van andere landen. Wij willen de economie versterken door minder belastingen, meer steun voor ondernemers en meer ruimte voor eigen initiatief.</p>
+        </div>
+
+        <div class="standpunt-sections">
+            <div class="standpunt-section">
+                <h3>Minder Belastingen</h3>
+                <p>In Nederland betalen mensen en bedrijven veel belasting. Dat zorgt ervoor dat er weinig overblijft om te investeren of te besteden.</p>
+                
+                <div class="highlight-box">
+                    <h4>Onze Aanpak:</h4>
+                    <ul>
+                        <li>Zuiniger overheidsbeleid</li>
+                        <li>Verlaging van belastingdruk</li>
+                        <li>Meer ruimte voor bedrijfsgroei</li>
+                        <li>Meer besteedbaar inkomen voor burgers</li>
+                    </ul>
+                </div>
+
+                <div class="stats-box">
+                    <h4>Voordelen:</h4>
+                    <ul>
+                        <li>Meer geld in portemonnee van burgers</li>
+                        <li>Betere groeikansen voor bedrijven</li>
+                        <li>Stimulering van de economie</li>
+                        <li>Meer vrijheid en zelfstandigheid</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Steun voor Ondernemers</h3>
+                <p>Ondernemers zijn de motor van onze economie. Ze zorgen voor banen, innovatie en groei. Toch krijgen zij vaak te maken met regels, lasten en onzekerheid.</p>
+                
+                <div class="highlight-box">
+                    <h4>Concrete Maatregelen:</h4>
+                    <ul>
+                        <li>Vermindering van regeldruk</li>
+                        <li>Snellere vergunningsprocedures</li>
+                        <li>Eerlijke concurrentievoorwaarden</li>
+                        <li>Extra ondersteuning voor startups</li>
+                    </ul>
+                </div>
+
+                <div class="stats-box">
+                    <h4>Focus op MKB:</h4>
+                    <ul>
+                        <li>Vereenvoudiging van administratieve processen</li>
+                        <li>Betere toegang tot financiering</li>
+                        <li>Ondersteuning bij digitalisering</li>
+                        <li>Vermindering van bureaucratie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Minder Afhankelijk van het Buitenland</h3>
+                <p>Nederland is op dit moment te afhankelijk van andere landen, bijvoorbeeld voor energie, grondstoffen en producten. Dat maakt ons kwetsbaar.</p>
+                
+                <div class="highlight-box">
+                    <h4>Onze Oplossingen:</h4>
+                    <ul>
+                        <li>Stimulering van Nederlandse productie</li>
+                        <li>Vermindering van importafhankelijkheid</li>
+                        <li>Investering in lokale ondernemers</li>
+                        <li>Ondersteuning van Nederlandse boeren</li>
+                    </ul>
+                </div>
+
+                <div class="stats-box">
+                    <h4>Prioriteiten:</h4>
+                    <ul>
+                        <li>Versterking van binnenlandse productie</li>
+                        <li>Ontwikkeling van eigen technologie</li>
+                        <li>Betere crisisbestendigheid</li>
+                        <li>Bescherming van strategische sectoren</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Ruimte voor Innovatie en Groei</h3>
+                <p>Om de economie klaar te maken voor de toekomst, moeten we durven vernieuwen. Wij willen investeren in slimme oplossingen, zoals schone energie, digitalisering en technologie.</p>
+                
+                <div class="highlight-box">
+                    <h4>Innovatie Agenda:</h4>
+                    <ul>
+                        <li>Investering in schone energie</li>
+                        <li>Stimulering van digitalisering</li>
+                        <li>Ontwikkeling van nieuwe technologieën</li>
+                        <li>Verbinding tussen onderwijs en bedrijfsleven</li>
+                    </ul>
+                </div>
+
+                <div class="stats-box">
+                    <h4>Toekomstgerichte Aanpak:</h4>
+                    <ul>
+                        <li>Ondersteuning van onderzoek en ontwikkeling</li>
+                        <li>Stimulering van duurzame innovaties</li>
+                        <li>Verbetering van kennisinfrastructuur</li>
+                        <li>Focus op praktijkgerichte oplossingen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+         
+            <a href="https://x.com/vez_politiek" target="_blank" ><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/vrijheid_en_zelfstandigheid" target="_blank" ><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vrijheid-en-zelfstandigheid-8110a2366/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Vrijheid en Zelfstandigheid</p>
+        <p>Contact: vezpolitiek@gmail.com</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

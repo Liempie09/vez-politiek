@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klimaat Standpunten - Vrijheid en Zelfstandigheid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* [Previous base styles from your index.html] */
+
+            .join-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.join-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.join-box {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 2px rgba(26, 42, 108, 0.1);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.join-info {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.join-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.price-item {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.price-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a2a6c;
+}
+
+.price-period {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.benefits h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.benefits ul {
+    list-style: none;
+}
+
+.benefits ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.benefits ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #1a2a6c;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .join-box {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            --secondary-gradient: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            --text-color: #2C3E50;
+            --light-bg: #F8FAFC;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: var(--header-height);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .button {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-gradient);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .standpunt-container {
+            max-width: 900px;
+            margin: 120px auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .standpunt-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .standpunt-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .standpunt-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .standpunt-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .standpunt-section h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+            border-image: var(--primary-gradient) 1;
+        }
+
+        .standpunt-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .problem-list, .solution-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .problem-list li, .solution-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #b21f1f;
+        }
+
+        .solution-list li {
+            border-left-color: #1a2a6c;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .uitgangspunten {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .uitgangspunten li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .uitgangspunten li:before {
+            content: "✓";
+            color: #1a2a6c;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .standpunt-container {
+                margin: 100px 1rem 2rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="vez.png" alt="Logo">
+            <h1>Vrijheid en Zelfstandigheid</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standpunten.html">Standpunten</a></li>
+                <li><a href="over.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="standpunt-container">
+        <a href="standpunten.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Terug naar alle standpunten
+        </a>
+
+        <div class="standpunt-header">
+            <h2 class="section-title">Klimaat en Energie</h2>
+        </div>
+
+        <div class="standpunt-intro">
+            <p>De wereldwijde klimaatverandering is een feit. Extremer weer, droogte, stijgende zeespiegels en afnemende biodiversiteit zorgen voor economische en sociale spanningen. Ook Nederland ondervindt hiervan de gevolgen. Tegelijkertijd zien we dat het klimaatbeleid in Nederland wordt gedomineerd door paniekreacties, onrealistische doelen, kostbare projecten en slechte maatregelen die burgers en ondernemers hard raken.</p>
+        </div>
+
+        <div class="standpunt-sections">
+            <div class="standpunt-section">
+                <h3>Onze Visie</h3>
+                <p>Als rechtse partij vinden we het belangrijk om goed voor ons land en de natuur te zorgen. We willen dat toekomstige generaties ook in een mooi en leefbaar land kunnen wonen. Maar dat doen we op een slimme en realistische manier. Geen dure plannen die weinig opleveren, maar betaalbare oplossingen die écht werken.</p>
+                
+                <h4>Onze uitgangspunten:</h4>
+                <ul class="uitgangspunten">
+                    <li>Mensen en bedrijven mogen zélf kiezen hoe ze verduurzamen – geen dwang van bovenaf</li>
+                    <li>Energie moet betaalbaar en betrouwbaar blijven voor iedereen</li>
+                    <li>We stoppen met paniek over het klimaat en stellen haalbare doelen</li>
+                    <li>Boeren, ondernemers en automobilisten verdienen steun, geen straf</li>
+                    <li>Nederland maakt zijn eigen klimaatbeleid – niet Brussel of de Verenigde Naties</li>
+                </ul>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Wat zijn de Problemen?</h3>
+                <ul class="problem-list">
+                    <li><strong>Onbetaalbaar klimaatbeleid:</strong> Subsidies voor windparken op zee, warmtepompen en elektrische auto's kosten miljarden. De gewone burger draait op voor deze kosten via stijgende energieprijzen en belastingen.</li>
+                    <li><strong>Verlies van energiezekerheid:</strong> Het sluiten van kolencentrales en gaswinning zonder stabiele alternatieven leidt tot stroomtekorten en afhankelijkheid van het buitenland.</li>
+                    <li><strong>Verplichte verduurzaming van huizen:</strong> Mensen worden gedwongen veel geld uit te geven aan dingen als warmtepompen en isolatie, terwijl dat niet altijd nodig of nuttig is.</li>
+                    <li><strong>Boeren en ondernemers worden oneerlijk behandeld:</strong> Boeren krijgen vaak de schuld van klimaatproblemen, terwijl zij al jaren werken aan slimme en duurzame oplossingen.</li>
+                    <li><strong>Nederland heeft steeds minder te zeggen:</strong> Regels uit Europa en internationale afspraken bepalen ons klimaatbeleid, terwijl gewone Nederlanders hier niet over mee mogen beslissen.</li>
+                </ul>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Onze Oplossingen</h3>
+                <ul class="solution-list">
+                    <li><strong>Slimme oplossingen, geen dwang:</strong> We kiezen voor techniek en innovatie, zoals kernenergie en slimme landbouw. Ondernemers krijgen de vrijheid om zelf te verduurzamen.</li>
+                    <li><strong>Kernenergie als stabiele basis:</strong> Kernenergie is schoon, veilig en levert veel stroom. Het is de beste manier om op lange termijn genoeg betaalbare energie te hebben.</li>
+                    <li><strong>Eigen energie eerst:</strong> We willen minder afhankelijk zijn van dure, buitenlandse energie. Daarom gebruiken we weer eigen gas en kiezen voor betrouwbare energiebronnen.</li>
+                    <li><strong>De politiek beslist, niet actiegroepen:</strong> Klimaatbeleid hoort thuis in de Tweede Kamer, niet bij activisten of rechters.</li>
+                    <li><strong>Boeren zijn deel van de oplossing:</strong> Geen gedwongen verkoop of sluiting van boerderijen. We helpen boeren om duurzamer te werken.</li>
+                    <li><strong>Minder belasting, meer vrijheid:</strong> We stoppen met onzinnige subsidies en verlagen de energierekening voor gewone mensen.</li>
+                    <li><strong>Geen verplichtingen in huis of vervoer:</strong> Geen verplichte warmtepomp, geen verbod op gas of de auto. Mensen mogen zelf kiezen hoe ze verduurzamen.</li>
+                </ul>
+            </div>
+
+            <div class="standpunt-section">
+                <h3>Tot Slot</h3>
+                <p>Het klimaat verandert, dat is duidelijk. Maar het antwoord moet geen economische zelfmoord zijn. Als rechtse partij staan wij voor gezond verstand, technologische vooruitgang en nationale belangen. Alleen zo zorgen we voor een leefbaar klimaat én een sterk Nederland.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+          
+            <a href="https://x.com/vez_politiek" target="_blank" ><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/vrijheid_en_zelfstandigheid" target="_blank" ><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vrijheid-en-zelfstandigheid-8110a2366/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Vrijheid en Zelfstandigheid</p>
+        <p>Contact: vezpolitiek@gmail.com</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1091 @@
+ <!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociale Zekerheid Standpunten - Vrijheid en Zelfstandigheid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* [Previous base styles from your index.html] */
+		
+		.footer {
+    background: var(--primary-gradient);
+    color: white;
+    text-align: center;
+    padding: 3rem;
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Styles for Header and Footer */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.8rem;
+    }
+}
+        
+        .tabs-container {
+    margin-top: 2rem;
+}
+
+.tabs-navigation {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #1a2a6c;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.tab-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tab-button.active {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section {
+    margin-bottom: 2rem;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.content-section h4 {
+    color: #1a2a6c;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.highlight-list {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.highlight-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.highlight-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #b21f1f;
+}
+        
+        .collapsible-section {
+    margin-bottom: 1rem;
+}
+
+.collapsible-header {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.collapsible-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.collapsible-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1a2a6c;
+}
+
+.collapsible-header i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-content {
+    background: white;
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-radius: 0 0 15px 15px;
+    opacity: 0;
+}
+
+.collapsible-section.active .collapsible-header {
+    border-radius: 15px 15px 0 0;
+}
+
+.collapsible-section.active .collapsible-content {
+    padding: 1.5rem;
+    max-height: 2000px;
+    opacity: 1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.collapsible-section.active .collapsible-header i {
+    transform: rotate(180deg);
+}
+
+        .standpunt-section {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .standpunt-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .standpunt-section h3 {
+        font-size: 2rem;
+        color: #1a2a6c;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 3px solid;
+        border-image: var(--primary-gradient) 1;
+        position: relative;
+    }
+
+    .standpunt-section h4 {
+        font-size: 1.3rem;
+        color: #2C3E50;
+        margin: 1.5rem 0 1rem;
+        padding-left: 1rem;
+        border-left: 4px solid #b21f1f;
+    }
+
+    .stats-box {
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        border: 1px solid rgba(26, 42, 108, 0.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .stats-box ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .stats-box li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .stats-box li:before {
+        content: "📊";
+        font-size: 1.2rem;
+    }
+
+    .stats-box li:last-child {
+        border-bottom: none;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(26, 42, 108, 0.05) 0%, rgba(178, 31, 31, 0.05) 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+        border-left: 4px solid #1a2a6c;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .feature-list li {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-list li:hover {
+        transform: translateY(-3px);
+    }
+
+    .feature-list li i {
+        font-size: 1.5rem;
+        color: #1a2a6c;
+    }
+
+    .section-divider {
+        height: 3px;
+        background: var(--primary-gradient);
+        margin: 3rem 0;
+        border-radius: 3px;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .info-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .info-card h5 {
+        font-size: 1.2rem;
+        color: #1a2a6c;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #b21f1f;
+    }
+
+    .quote-box {
+        background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        position: relative;
+    }
+
+    .quote-box:before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        font-size: 5rem;
+        color: rgba(255,255,255,0.2);
+    }
+
+    .quote-box p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+        .standpunt-section {
+            padding: 1.5rem;
+        }
+
+        .standpunt-section h3 {
+            font-size: 1.5rem;
+        }
+
+        .feature-list {
+            grid-template-columns: 1fr;
+        }
+    }
+
+        .join-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.join-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.join-box {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1a2a6c;
+    box-shadow: 0 0 0 2px rgba(26, 42, 108, 0.1);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.join-info {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.join-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.price-item {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.price-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a2a6c;
+}
+
+.price-period {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.benefits h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.benefits ul {
+    list-style: none;
+}
+
+.benefits ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.benefits ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #1a2a6c;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .join-box {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            --secondary-gradient: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            --text-color: #2C3E50;
+            --light-bg: #F8FAFC;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+      body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: var(--header-height);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .button {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-gradient);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+     .footer {
+    background: var(--primary-gradient);
+    color: white;
+    text-align: center;
+    padding: 3rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+     .standpunt-container {
+    max-width: 900px;
+    margin: 120px auto 4rem;
+    padding: 0 2rem;
+}
+
+        .standpunt-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .standpunt-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .standpunt-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .standpunt-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .standpunt-section h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+            border-image: var(--primary-gradient) 1;
+        }
+
+        .standpunt-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #1a2a6c;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .pros, .cons {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .pros {
+            border-left: 4px solid #28a745;
+        }
+
+        .cons {
+            border-left: 4px solid #dc3545;
+        }
+
+        .pros h4, .cons h4 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .standpunt-container {
+                margin: 100px 1rem 2rem;
+                padding: 1rem;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="vez.png" alt="Logo">
+            <h1>Vrijheid en Zelfstandigheid</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standpunten.html">Standpunten</a></li>
+                <li><a href="over.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="standpunt-container">
+        <a href="standpunten.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Terug naar alle standpunten
+        </a>
+
+        <div class="standpunt-header">
+            <h2 class="section-title">Sociale Zekerheid</h2>
+        </div>
+
+        <div class="standpunt-intro">
+            <p>In Nederland zijn er een klein aantal mensen die werkeloos zijn. Die mensen hebben er simpelweg geen zin in, zijn tijdelijk werkeloos of kúnnen niet werken. De mensen die niet kunnen werken, moeten zich laten keuren of ze ook echt die mogelijkheid niet meer hebben om te werken. Als dit het geval is, krijgen ze een maandelijkse uitkering van de overheid.</p>
+        </div>
+
+        <div class="tabs-container">
+    <div class="tabs-navigation">
+        <button class="tab-button active" data-tab="overview">Overzicht</button>
+        <button class="tab-button" data-tab="costs">Kosten</button>
+        <button class="tab-button" data-tab="benefits">Voordelen</button>
+        <button class="tab-button" data-tab="problems">Problemen</button>
+        <button class="tab-button" data-tab="solutions">Onze Oplossingen</button>
+    </div>
+
+    <!-- Overview Tab -->
+    <div class="tab-content active" id="overview">
+        <div class="content-section">
+            <h4>Het Nederlandse Sociale Zekerheidsstelsel</h4>
+            <p>In Nederland zijn er een klein aantal mensen die werkeloos zijn. Die mensen hebben er simpelweg geen zin in, zijn tijdelijk werkeloos of kúnnen niet werken. De mensen die niet kunnen werken, moeten zich laten keuren of ze ook echt die mogelijkheid niet meer hebben om te werken.</p>
+            
+            <div class="highlight-list">
+                <h4>Vormen van Ondersteuning:</h4>
+                <ul>
+                    <li>Werkloosheidsuitkeringen (WW)</li>
+                    <li>Bijstandsuitkeringen</li>
+                    <li>Arbeidsongeschiktheidsuitkeringen</li>
+                    <li>AOW voor gepensioneerden</li>
+                    <li>Diverse toeslagen voor wonen, zorg en kinderen</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Costs Tab -->
+    <div class="tab-content" id="costs">
+        <div class="content-section">
+            <h4>Financiële Impact</h4>
+            <p>Van alle jaarlijkse kosten dat Nederland maakt, vullen de sociale zekerheden bijna een kwart van de totale uitgaven.</p>
+            
+            <div class="stats-box">
+                <h4>Belangrijke Cijfers:</h4>
+                <ul>
+                    <li>Kosten voor verzuim in 2016: 1,1 miljard euro</li>
+                    <li>Kosten voor verzuim in 2025: 2,2 miljard euro</li>
+                    <li>Verhouding gepensioneerden/werkenden: 1:2,7</li>
+                    <li>25% van overheidsuitgaven gaat naar sociale zekerheid</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Tab -->
+    <div class="tab-content" id="benefits">
+        <div class="content-section">
+            <h4>Financiële Zekerheid</h4>
+            <p>Een positief punt van de uitkeringen in Nederland is dat ze financiële zekerheid bieden aan mensen die tijdelijk niet kunnen werken.</p>
+        </div>
+
+        <div class="content-section">
+            <h4>Kans op Heroriëntatie</h4>
+            <p>Een ander positief punt is dat ze mensen de kans geven om zich te heroriënteren op de arbeidsmarkt.</p>
+        </div>
+
+        <div class="highlight-list">
+            <h4>Maatschappelijke Voordelen:</h4>
+            <ul>
+                <li>Voorkoming van acute armoede</li>
+                <li>Behoud van sociale cohesie</li>
+                <li>Ondersteuning van kwetsbare groepen</li>
+                <li>Mogelijkheid tot persoonlijke ontwikkeling</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Problems Tab -->
+    <div class="tab-content" id="problems">
+        <div class="content-section">
+            <h4>Uitkeringsval</h4>
+            <p>Een negatief punt van het uitkeringsstelsel in Nederland is dat het in sommige gevallen kan leiden tot een zogenaamde "uitkeringsval".</p>
+        </div>
+
+        <div class="highlight-list">
+            <h4>Belangrijkste Knelpunten:</h4>
+            <ul>
+                <li>Complex en bureaucratisch systeem</li>
+                <li>Demotiverend effect op werkzoekenden</li>
+                <li>Hoge kosten voor de samenleving</li>
+                <li>Risico op misbruik van het systeem</li>
+                <li>Inefficiënte administratieve processen</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Solutions Tab -->
+    <div class="tab-content" id="solutions">
+        <div class="content-section">
+            <h4>Onze Aanpak</h4>
+            <p>Als rechtse partij kiezen wij voor een fundamenteel andere aanpak van sociale zekerheid.</p>
+        </div>
+
+        <div class="highlight-list">
+            <h4>Kernpunten van ons beleid:</h4>
+            <ul>
+                <li>Uitkeringen alleen voor 100% afgekeurden</li>
+                <li>Eigen verantwoordelijkheid bij werkzoekenden</li>
+                <li>Verlaging van uitkeringsbedragen</li>
+                <li>Efficiëntere besteding van middelen</li>
+            </ul>
+        </div>
+
+        <div class="highlight-list">
+            <h4>Verwachte Resultaten:</h4>
+            <ul>
+                <li>Significante daling van overheidsuitgaven</li>
+                <li>Meer mensen actief op zoek naar werk</li>
+                <li>Minder misbruik van het systeem</li>
+                <li>Eerlijkere verdeling van middelen</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+    <footer class="footer">
+        <div class="social-links">
+         
+            <a href="https://x.com/vez_politiek" target="_blank" ><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/vrijheid_en_zelfstandigheid" target="_blank" ><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vrijheid-en-zelfstandigheid-8110a2366/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Vrijheid en Zelfstandigheid</p>
+        <p>Contact: vezpolitiek@gmail.com</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const section = header.parentElement;
+        const isActive = section.classList.contains('active');
+        
+        // Close all sections
+        document.querySelectorAll('.collapsible-section').forEach(s => {
+            s.classList.remove('active');
+        });
+        
+        // If the clicked section wasn't active, open it
+        if (!isActive) {
+            section.classList.add('active');
+        }
+    });
+});
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding content
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+    });
+});
+    </script>
+    
+
+</body>
+</html>

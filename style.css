@@ -1,0 +1,38 @@
+body{
+	background-color: #393f4d;
+}
+h1{
+	color: #d4d4dc;
+	background-color: #1d1e22;
+	 font-size: 40px;
+	
+}
+h2{
+	color: #d4d4dc;
+	background-color: #1d1e22;
+	font-size: 25px;
+	
+}
+li{
+	
+	color: red;
+}
+
+a{
+	color: red;
+}
+img{
+	height: 180px;
+	width: 15%;
+
+}
+	
+table{
+	width: 100%;
+	
+}
+
+th{
+	background-color: grey;
+	
+}

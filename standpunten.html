@@ -1,0 +1,501 @@
+ <!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standpunten - Vrijheid en Zelfstandigheid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* [Previous base styles remain the same] */
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            --secondary-gradient: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            --text-color: #2C3E50;
+            --light-bg: #F8FAFC;
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: var(--header-height);
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .button {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-gradient);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2C3E50;
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer {
+            background: var(--primary-gradient);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .standpunten-container {
+            max-width: 1200px;
+            margin: 120px auto 4rem;
+            padding: 2rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .topic-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .topic-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .topic-card:hover .topic-image img {
+            transform: scale(1.05);
+        }
+
+        .topic-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .topic-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .topic-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        .topic-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 1024px) {
+            .topics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .standpunten-container {
+                margin: 100px 1rem 2rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="vez.png" alt="Logo">
+            <h1>Vrijheid en Zelfstandigheid</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standpunten.html">Standpunten</a></li>
+                <li><a href="over.html">Over Ons</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="standpunten-container">
+        <h2 class="section-title">Onze Standpunten</h2>
+        <p class="intro-text">
+            Ontdek waar Vrijheid en Zelfstandigheid voor staat. Klik op een onderwerp om onze gedetailleerde visie en voorstellen te lezen.
+        </p>
+
+        <div class="topics-grid">
+            <!-- Economie -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="economie.jpg" alt="Economie">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Economie</h3>
+                    <p class="topic-description">
+                        Onze visie op economische vrijheid, ondernemerschap en financieel beleid.
+                    </p>
+                    <a href="standpunten-economie.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+
+            <!-- Zorg -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="zorg.jpg" alt="Zorg">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Gezondheidzorg</h3>
+                    <p class="topic-description">
+                        Onze plannen voor een toegankelijk en betaalbaar zorgstelsel.
+                    </p>
+                    <a href="standpunten-zorg.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+
+            <!-- Onderwijs -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="onderwijs.jpg" alt="Onderwijs">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Onderwijs</h3>
+                    <p class="topic-description">
+                        Onze visie op kwalitatief onderwijs en kansen voor iedereen.
+                    </p>
+                    <a href="standpunten-onderwijs.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+
+            <!-- Klimaat -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="klimaat.jpg" alt="Klimaat">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Klimaat</h3>
+                    <p class="topic-description">
+                        Onze standpunten over het klimaatbeleid in Nederland.
+                    </p>
+                    <a href="standpunten-klimaat.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+
+            <!-- Veiligheid -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="arbeid.jpg" alt="Arbeid">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Arbeidsmarkt</h3>
+                    <p class="topic-description">
+                        Onze standpunten over de arbeidsmarkt
+                    </p>
+                    <a href="standpunten-arbeid.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+
+            <!-- Immigratie -->
+            <div class="topic-card">
+                <div class="topic-image">
+                    <img src="sociale.jpg" alt="zekerheid">
+                </div>
+                <div class="topic-content">
+                    <h3 class="topic-title">Sociale zekerheid</h3>
+                    <p class="topic-description">
+                        Onze standpunten over de sociale zekerheid.
+                    </p>
+                    <a href="standpunten-zekerheid.html" class="topic-link">Lees meer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+ 
+            <a href="https://x.com/vez_politiek" target="_blank" ><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/vrijheid_en_zelfstandigheid" target="_blank" ><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vrijheid-en-zelfstandigheid-8110a2366/" target="_blank" ><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Vrijheid en Zelfstandigheid</p>
+        <p>Contact: vezpolitiek@gmail.com</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
